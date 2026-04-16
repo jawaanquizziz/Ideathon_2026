@@ -1,0 +1,171 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Alex Rivers",
+      "email": "admin@ecosense.ai",
+      "password": "eco123",
+      "stats": {
+        "score": 86,
+        "carbonSaved": 15.600000000000001,
+        "trend": "+2%"
+      }
+    },
+    {
+      "id": "1776359419270",
+      "name": "Jawaan Santh",
+      "email": "jawaan2720@gmail.com",
+      "password": "jawsie27",
+      "stats": {
+        "score": 63,
+        "carbonSaved": 22.8,
+        "trend": "0%"
+      }
+    },
+    {
+      "id": "1776363426471",
+      "name": "Samuel alva",
+      "email": "samuel@gmail.com",
+      "password": "root",
+      "stats": {
+        "score": 53,
+        "carbonSaved": 5,
+        "trend": "0%"
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "ACT-1776363495071",
+      "userId": "1776363426471",
+      "type": "Food",
+      "title": "Plant-based Meal",
+      "impact": "-1.8 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:48 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776363458962",
+      "userId": "1776363426471",
+      "type": "Travel",
+      "title": "Biked to work",
+      "impact": "-3.2 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:47 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362868577",
+      "userId": "1776359419270",
+      "type": "Food",
+      "title": "Plant-based Meal",
+      "impact": "-1.8 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:37 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362865249",
+      "userId": "1776359419270",
+      "type": "Travel",
+      "title": "Biked to work",
+      "impact": "-3.2 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:37 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362864523",
+      "userId": "1776359419270",
+      "type": "Food",
+      "title": "Plant-based Meal",
+      "impact": "-1.8 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:37 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362860370",
+      "userId": "1776359419270",
+      "type": "Travel",
+      "title": "Biked to work",
+      "impact": "-3.2 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:37 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362858226",
+      "userId": "1776359419270",
+      "type": "Food",
+      "title": "Plant-based Meal",
+      "impact": "-1.8 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:37 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362413254",
+      "userId": "1776359419270",
+      "type": "Energy",
+      "title": "AI Suggestion: Thermostat",
+      "impact": "-4 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:30 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362409630",
+      "userId": "1776359419270",
+      "type": "Energy",
+      "title": "Thermostat Opt.",
+      "impact": "-2 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:30 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362407946",
+      "userId": "1776359419270",
+      "type": "Food",
+      "title": "Plant-based Meal",
+      "impact": "-1.8 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:30 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776362403049",
+      "userId": "1776359419270",
+      "type": "Travel",
+      "title": "Biked to work",
+      "impact": "-3.2 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:30 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776361813040",
+      "userId": "1",
+      "type": "Travel",
+      "title": "Biked to work",
+      "impact": "-3.2 kg CO2",
+      "status": "Verified",
+      "date": "2026-04-16",
+      "time": "11:20 pm",
+      "points": 10
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f3f4f6; /* Gray-100 */
+    color: #111827; /* Gray-900 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px; /* Reduced from 24px for SaaS look */
+    line-height: 1;
+    user-select: none;
+  }
+
+  .material-symbols-outlined.fill-1 {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+@layer components {
+  /* Strict SaaS card implementation */
+  .card {
+    @apply bg-surface-card rounded-xl border border-surface-border shadow-card p-6 flex flex-col h-full transition-all duration-200;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover hover:border-primary/20 active:scale-[0.98] active:shadow-md cursor-pointer;
+  }
+
+  .btn-tactile {
+    @apply active:scale-95 transition-transform;
+  }
+  
+  /* Input focus states matching SaaS standards */
+  .input-standard {
+    @apply bg-white border border-surface-border rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+
+  /* Chat bubble styles */
+  .bubble-user {
+    @apply bg-primary text-white px-4 py-3 rounded-xl rounded-tr-none shadow-sm;
+  }
+  
+  .bubble-ai {
+    @apply bg-white border border-surface-border text-on-surface px-4 py-3 rounded-xl rounded-tl-none shadow-sm;
+  }
+
+  /* Sidebar Active */
+  .nav-active {
+    @apply bg-primary-light text-primary-dark font-semibold;
+  }
+  .nav-inactive {
+    @apply text-on-surface-variant hover:bg-surface-hover hover:text-on-surface;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* AMAZING ANIMATIONS FOR SPLASH AND AUTH */
+  @keyframes logo-entrance {
+    0% { transform: scale(0.8) rotate(-10deg); opacity: 0; filter: blur(10px); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; filter: blur(0); }
+  }
+
+  @keyframes text-reveal {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes drawLine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes radial-glow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+  }
+
+  .animate-logo { animation: logo-entrance 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+  .animate-reveal { animation: text-reveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards; opacity: 0; }
+  .animate-reveal-slow { animation: text-reveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.8s forwards; opacity: 0; }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ecosense-root",
+  "version": "1.0.0",
+  "description": "Root configuration to run client and server concurrently",
+  "private": true,
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && node server.js",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
