@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { readDB, writeDB } = require('../data/storage');
+const { readDB, writeDB, ensureUser } = require('../data/storage');
 
 // --- VIRTUAL AI INTELLIGENCE DATABASE (ZERO-API) ---
 const VIRTUAL_SUGGESTIONS = [
@@ -27,9 +27,8 @@ const getRandomItems = (arr, count) => {
 // GET /api/eco/score
 router.get('/score', (req, res) => {
   const userId = req.headers['x-user-id'];
-  const db = readDB();
-  const user = db.users.find(u => u.id === userId);
-  if (!user) return res.status(404).json({ error: 'User not found' });
+  const user = ensureUser(userId);
+  if (!user) return res.status(404).json({ error: 'User session expired. Please refresh.' });
   res.json(user.stats);
 });
 
@@ -78,8 +77,8 @@ router.post('/log', (req, res) => {
   const userId = req.headers['x-user-id'];
   const db = readDB();
 
-  const user = db.users.find(u => u.id === userId);
-  if (!user) return res.status(404).json({ error: 'User not found' });
+  const user = ensureUser(userId);
+  if (!user) return res.status(404).json({ error: 'User session expired' });
 
   // Update Stats
   if (carbonSaved) {

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { readDB, writeDB } = require('../data/storage');
+const { readDB, writeDB, ensureUser } = require('../data/storage');
 
 router.post('/register', (req, res) => {
   const { name, email, password } = req.body;
@@ -40,14 +40,14 @@ router.put('/profile/:id', (req, res) => {
   const { name, email } = req.body;
   const db = readDB();
 
-  const userIndex = db.users.findIndex(u => u.id === id);
-  if (userIndex === -1) {
-    return res.status(404).json({ error: 'User not found' });
+  const user = ensureUser(id);
+  if (!user) {
+    return res.status(404).json({ error: 'User session expired' });
   }
 
   // Update user details
-  db.users[userIndex].name = name || db.users[userIndex].name;
-  db.users[userIndex].email = email || db.users[userIndex].email;
+  user.name = name || user.name;
+  user.email = email || user.email;
 
   writeDB(db);
 

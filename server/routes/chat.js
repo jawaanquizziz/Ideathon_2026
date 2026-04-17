@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { ensureUser } = require('../data/storage');
 
 // --- VIRTUAL AI INTELLIGENCE ENGINE (ZERO-API) ---
 const getLeafyResponse = (message) => {
@@ -30,6 +31,13 @@ const getLeafyResponse = (message) => {
 // POST /api/chat
 router.post('/', async (req, res) => {
   const { message } = req.body;
+  const userId = req.headers['x-user-id'];
+  
+  // Ensure session exists
+  const user = ensureUser(userId);
+  if (!user && userId !== 'guest') {
+    return res.status(404).json({ error: 'Session expired' });
+  }
   
   // Artificial delay to simulate "AI Thinking"
   setTimeout(() => {
