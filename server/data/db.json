@@ -9,7 +9,25 @@
         "score": 86,
         "carbonSaved": 15.600000000000001,
         "trend": "+2%"
-      }
+      },
+      "notifications": [
+        {
+          "id": "1",
+          "title": "Welcome to EcoSense AI",
+          "message": "Personalized sustainability analysis is now active.",
+          "type": "System",
+          "read": false,
+          "date": "Today"
+        },
+        {
+          "id": "2",
+          "title": "Calibration Successful",
+          "message": "Your Carbon Pattern has been synchronized with global trends.",
+          "type": "AI",
+          "read": false,
+          "date": "Today"
+        }
+      ]
     },
     {
       "id": "1776359419270",
@@ -28,13 +46,64 @@
       "email": "samuel@gmail.com",
       "password": "root",
       "stats": {
-        "score": 53,
-        "carbonSaved": 5,
+        "score": 76,
+        "carbonSaved": 9.4,
         "trend": "0%"
-      }
+      },
+      "notifications": [
+        {
+          "id": "1",
+          "title": "Welcome to EcoSense AI",
+          "message": "Personalized sustainability analysis is now active.",
+          "type": "System",
+          "read": false,
+          "date": "Today"
+        },
+        {
+          "id": "2",
+          "title": "Calibration Successful",
+          "message": "Your Carbon Pattern has been synchronized with global trends.",
+          "type": "AI",
+          "read": false,
+          "date": "Today"
+        }
+      ]
     }
   ],
   "activities": [
+    {
+      "id": "ACT-1776399532620",
+      "userId": "1776363426471",
+      "type": "Food",
+      "title": "Nutritional Logic Bridge",
+      "impact": "-2.4 kg CO2",
+      "status": "Verified by AI",
+      "date": "2026-04-17",
+      "time": "09:48 am",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776399530230",
+      "userId": "1776363426471",
+      "type": "Lifestyle",
+      "title": "Hydraulic Efficiency Scan",
+      "impact": "-1.1 kg CO2",
+      "status": "Verified by AI",
+      "date": "2026-04-17",
+      "time": "09:48 am",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776399525690",
+      "userId": "1776363426471",
+      "type": "Waste",
+      "title": "Waste Stream Optimization",
+      "impact": "-0.9 kg CO2",
+      "status": "Verified by AI",
+      "date": "2026-04-17",
+      "time": "09:48 am",
+      "points": 10
+    },
     {
       "id": "ACT-1776363495071",
       "userId": "1776363426471",

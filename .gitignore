@@ -38,3 +38,9 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# Local Tools / Scratch
+.gemini/
+scratch_*
+*.js.map
+*.map

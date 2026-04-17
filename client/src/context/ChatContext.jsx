@@ -60,12 +60,11 @@ export function ChatProvider({ children }) {
       };
       setMessages(prev => [...prev, aiMsg]);
     } catch (error) {
+      console.error("Frontend Chat Error:", error);
       const errMsg = {
         role: 'assistant',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        content: error.response?.status === 503 
-          ? '🌿 EcoSense AI is ready, but your API Key is missing. Please add it to the server .env file to enable live coaching!'
-          : 'I\'m experiencing a climate connection issue. Please try again soon! 🍃',
+        content: error.response?.data?.reply || 'I\'m experiencing a climate connection issue. Please try again soon! 🍃',
       };
       setMessages(prev => [...prev, errMsg]);
     } finally {

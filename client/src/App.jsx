@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { EcoProvider } from './context/EcoContext';
 import { ChatProvider } from './context/ChatContext';
+import { NotificationProvider } from './context/NotificationContext';
 
 // Components
 import SideNav from './components/SideNav';
@@ -67,17 +68,19 @@ function AppContent() {
   return (
     <EcoProvider>
       <ChatProvider>
-        <MainLayout isMobile={isMobile}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/assistant" element={<Assistant />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/activity" element={<ActivityHistory />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-        </MainLayout>
-        <EcoMascot />
+        <NotificationProvider>
+          <MainLayout isMobile={isMobile}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/assistant" element={<Assistant />} />
+              <Route path="/insights" element={<Insights />} />
+              <Route path="/activity" element={<ActivityHistory />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </MainLayout>
+          <EcoMascot />
+        </NotificationProvider>
       </ChatProvider>
     </EcoProvider>
   );

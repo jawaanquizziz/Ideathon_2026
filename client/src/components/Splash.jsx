@@ -21,7 +21,7 @@ export default function Splash() {
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-[radial-glow_4s_ease-in-out_infinite]" />
       
-      <div className="flex flex-col items-center gap-8 relative z-10">
+      <div className="flex flex-col items-center gap-12 relative z-10">
         {/* New Premium Logo */}
         <div className="w-40 h-40 animate-logo drop-shadow-2xl">
           <img src="/logo.png" alt="EcoSense Logo" className="w-full h-full object-contain" />
@@ -33,11 +33,11 @@ export default function Splash() {
             {randomSlogan}
           </p>
         </div>
-      </div>
-      
-      {/* Sleek Progress Bar */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-32 h-[3px] bg-surface-border rounded-full overflow-hidden animate-reveal-slow" style={{ opacity: 0.5 }}>
-        <div className="h-full bg-primary animate-[drawLine_2.5s_ease-in-out_infinite]" />
+
+        {/* Sleek Progress Bar - Now perfectly centered below the text */}
+        <div className="w-32 h-[3px] bg-surface-border rounded-full overflow-hidden animate-reveal-slow" style={{ opacity: 0.5 }}>
+          <div className="h-full bg-primary animate-[drawLine_2.5s_ease-in-out_infinite]" />
+        </div>
       </div>
     </div>
   );

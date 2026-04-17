@@ -1,10 +1,37 @@
+import { useState, useEffect } from 'react';
 import { useEco } from '../context/EcoContext';
+import axios from 'axios';
 
 export default function Insights() {
   const { stats, activities, loading } = useEco();
+  const [opportunities, setOpportunities] = useState([]);
+  const [isAiLoading, setIsAiLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchOpportunities = async () => {
+      if (!stats) return;
+      try {
+        setIsAiLoading(true);
+        const userData = localStorage.getItem('ecosense_user');
+        const user = userData ? JSON.parse(userData) : null;
+        if (!user) return;
+        
+        const res = await axios.get('/api/eco/recommendations', {
+          headers: { 'x-user-id': user.id }
+        });
+        setOpportunities(res.data.opportunities || []);
+      } catch (err) {
+        console.error("Failed to fetch dynamic insights", err);
+      } finally {
+        setIsAiLoading(false);
+      }
+    };
+
+    fetchOpportunities();
+  }, [stats]);
 
   if (loading || !stats) return <div className="pt-24 lg:pl-64 text-center text-on-surface-light font-medium">Analyzing climate metrics...</div>;
-
+  
   const safeActivities = activities || [];
 
   // 1. DYNAMIC BAR DATA: Calculate intensity for last 7 days
@@ -127,15 +154,35 @@ export default function Insights() {
           </div>
         </div>
 
-        {/* Machine Learning Opportunities Section (Linked to AI logic) */}
+        {/* Machine Learning Opportunities Section (Now Dynamic) */}
         <div className="card border-primary/10">
           <h3 className="font-bold text-lg mb-6 flex items-center gap-2 text-on-surface">
              <span className="material-symbols-outlined text-primary">auto_awesome</span>
              Advanced Mitigation Opportunities (AI)
           </h3>
-          <div className="p-8 text-center text-on-surface-variant italic text-sm">
-             <p>Leafy's AI brain is currently analyzing your long-term patterns... Check the Dashboard for real-time suggestions!</p>
-          </div>
+          
+          {isAiLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+               {[1,2,3].map(i => <div key={i} className="h-40 bg-surface animate-pulse rounded-xl"></div>)}
+            </div>
+          ) : opportunities.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {opportunities.map(o => (
+                <div key={o.id} className="p-5 border border-surface-border rounded-xl bg-surface/30 hover:bg-white transition-all group">
+                   <div className="flex justify-between items-center mb-3">
+                      <span className={`text-[9px] font-black px-2 py-0.5 rounded ${o.impact === 'High' ? 'bg-orange-100 text-orange-600' : 'bg-emerald-100 text-emerald-600'}`}>{o.impact} IMPACT</span>
+                      <p className="text-[10px] font-bold text-primary">{o.metric}</p>
+                   </div>
+                   <h4 className="font-bold text-sm mb-2">{o.title}</h4>
+                   <p className="text-xs text-on-surface-variant leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">{o.desc}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="p-8 text-center text-on-surface-variant italic text-sm">
+               <p>Leafy's AI brain is currently analyzing your long-term patterns... Start logging more actions for better predictions!</p>
+            </div>
+          )}
         </div>
 
       </div>
