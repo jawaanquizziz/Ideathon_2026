@@ -46,8 +46,8 @@
       "email": "samuel@gmail.com",
       "password": "root",
       "stats": {
-        "score": 76,
-        "carbonSaved": 9.4,
+        "score": 100,
+        "carbonSaved": 18.099999999999998,
         "trend": "0%"
       },
       "notifications": [
@@ -71,6 +71,39 @@
     }
   ],
   "activities": [
+    {
+      "id": "ACT-1776437190835",
+      "userId": "1776363426471",
+      "type": "Food",
+      "title": "Nutritional Logic Bridge",
+      "impact": "-2.4 kg CO2",
+      "status": "Verified by AI",
+      "date": "2026-04-17",
+      "time": "08:16 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776437190007",
+      "userId": "1776363426471",
+      "type": "Energy",
+      "title": "Smart Standby Termination",
+      "impact": "-0.5 kg CO2",
+      "status": "Verified by AI",
+      "date": "2026-04-17",
+      "time": "08:16 pm",
+      "points": 10
+    },
+    {
+      "id": "ACT-1776437188075",
+      "userId": "1776363426471",
+      "type": "Travel",
+      "title": "Transport Synapse Detected",
+      "impact": "-5.8 kg CO2",
+      "status": "Verified by AI",
+      "date": "2026-04-17",
+      "time": "08:16 pm",
+      "points": 10
+    },
     {
       "id": "ACT-1776399532620",
       "userId": "1776363426471",
