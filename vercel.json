@@ -1,21 +1,18 @@
 {
   "version": 2,
-  "builds": [
+  "functions": {
+    "server/server.js": {
+      "includeFiles": "server/data/**"
+    }
+  },
+  "rewrites": [
     {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "source": "/api/(.*)",
+      "destination": "server/server.js"
     },
     {
-      "src": "server/server.js",
-      "use": "@vercel/node"
+      "source": "/(.*)",
+      "destination": "/client/dist/$1"
     }
-  ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "server/server.js" },
-    { "source": "/(.*)", "destination": "client/$1" }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
