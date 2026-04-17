@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "outputDirectory": "client/dist",
   "functions": {
     "api/index.js": {
       "includeFiles": "server/data/**"
@@ -12,7 +13,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/client/dist/$1"
+      "destination": "/$1"
     }
   ]
 }
